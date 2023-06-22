@@ -3,6 +3,7 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+<<<<<<< HEAD
       fontFamily: {
         inter: ["Inter", "sans-serif"],
       },
@@ -25,6 +26,11 @@ module.exports = {
         yellow: {
           50: "#FFD60A",
         },
+=======
+      colors: {
+        bgDark: "#22223b",
+        bgDark2: "#4a4e69",
+>>>>>>> 7bfdec8 (first commit)
       },
     },
   },

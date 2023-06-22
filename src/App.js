@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react'
 import Navbar from './components/Navbar'
 import './index.css'
@@ -29,6 +30,53 @@ export default function App() {
           <Route path='/Dashboard' element={<Dashboard></Dashboard>}/>
           <Route path='*' element={<NoPage></NoPage>}/>
       </Routes>
+=======
+import React, { useEffect, useState } from 'react'
+import Navbar from './components/Navbar'
+import Filter from './components/Filter'
+import Cards from './components/Cards'
+import Spinner from './components/Spinner'
+import { filterData,apiUrl } from './data'
+import {toast} from 'react-toastify'
+
+export default function App() {
+
+  const[course,setCourse]=useState(null);
+  const[loading,setLoading]=useState(true);
+  const[category,setCategory]=useState(filterData[0].title);
+
+  async function fetchData(){
+    setLoading(true)
+
+    try{
+      let response= await fetch(apiUrl)
+      let output = await response.json()
+      setCourse(output.data)
+      toast.success("data aa gya hai")
+      console.log(output.data)
+    }
+
+    catch(error){
+      toast.error("Network Problem")
+    }
+
+    setLoading(false)
+  }
+
+  useEffect(()=>{
+    fetchData()
+  },[])
+
+
+
+  return (
+    <div className='min-h-screen flex flex-col bg-bgDark2'>
+      <Navbar></Navbar>
+      <Filter category={category} setCategory={setCategory} filterData={filterData} ></Filter>
+      {
+        loading ? (<Spinner></Spinner>) : (<Cards category={category} course={course} ></Cards>)
+      }
+>>>>>>> 7bfdec8 (first commit)
     </div>
   )
 }

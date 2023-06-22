@@ -1,4 +1,5 @@
 import React from 'react'
+<<<<<<< HEAD
 import Logo from '../assets/Logo.svg'
 import { useState } from 'react'
 import {Link} from "react-router-dom";
@@ -43,6 +44,15 @@ export default function Navbar({login,setLogin}) {
                 <Link to={'/Dashboard'}><button className='bg-[#005eff]  px-3 py-2 border border-none rounded'>Dashboard</button></Link>
             }
         </div>
+=======
+
+export default function Navbar() {
+  return (
+    <div>
+      <nav className='bg-bgDark py-4'>
+         <h1 className='text-3xl font-bold text-center text-white'>Top Courses</h1>
+      </nav>
+>>>>>>> 7bfdec8 (first commit)
     </div>
   )
 }
